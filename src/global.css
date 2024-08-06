@@ -1,0 +1,60 @@
+/*variáveis raizes para serem compartilhadas*/
+:root {
+    --white: #FFFFFF;
+    --gray-100: #F2F2F2;
+    --gray-200: #D9D9D9;
+    --gray-300: #808080;
+    --gray-400: #333333;
+    --gray-500: #262626;
+    --gray-600: #1A1A1A;
+    --gray-700: #0D0D0D;
+
+    --blue-200: #4EA8DE;
+    --blue-500: #1E6F9F;
+    
+    --purple-200: #8284FA;
+    --purple-500: #5E60CE;
+
+    --red-500: #E25858;
+}
+
+/*Tirar o foco padrão do navegador.*/
+:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--green-500);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /*
+    esta propriedade serve para quando for setado algum padding, margin ou border
+    no elemento ele não espanda para fora e sim seja compressado pela margin e/ou padding.
+    */
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--gray-600);
+    color: var(--gray-300);
+    /*
+    esta propriedade serve para padronizar uma suavizar as fontes em qualquer que seja 
+    o browser utilizado, importante quando não se usa fonte padrão.
+    */  
+    -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+    /*
+    Nossa primeira opção é nossa fonte carregada, contudo se não carregar a fonte que
+    exibirá nossos textos serão fontes sem serifa, ou seja, fontes visualmente melhores
+    para tela de computador, celulares e etc.
+    */
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /*
+    1rem >> 16px
+    Importante sempre utilizar unidades de medida relativa, por questões de responsividade 
+    */
+    font-size: 1rem;
+}
