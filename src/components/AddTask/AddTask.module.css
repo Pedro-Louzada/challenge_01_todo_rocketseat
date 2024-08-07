@@ -16,6 +16,10 @@
     background: var(--gray-500);
     padding: 1rem;
   }
+
+  .inputTask:focus {
+    color: var(--white)
+  }
   
   .buttonTaskBox {
     display: flex;
@@ -35,4 +39,11 @@
     border-radius: 0.5rem;
   
     color: var(--white);
+    font-weight: bold;
+
+    transition: background-color 1s;
+  }
+
+  .buttonTaskBox:hover {
+    background: var(--blue-200);
   }
