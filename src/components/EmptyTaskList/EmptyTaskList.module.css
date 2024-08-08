@@ -1,0 +1,28 @@
+.taskList {
+    display: flex;
+    flex-direction: column;
+    
+    border-top: 2px solid var(--gray-400);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.taskContent {
+    margin: 4rem auto;
+
+    text-align: center;
+}
+
+.taskContent > img {
+    padding-bottom: 1rem;
+}
+
+.taskContent > p {
+    font-weight: bold;
+
+    color: var(--gray-300);
+}
+
+.taskContent > span {
+    color: var(--gray-300);
+}

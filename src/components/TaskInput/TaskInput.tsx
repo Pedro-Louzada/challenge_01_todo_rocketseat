@@ -1,16 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import styles from './AddTask.module.css';
+import styles from './TaskInput.module.css';
 
 import { PlusCircle } from '@phosphor-icons/react';
 import { TaskBox } from '../TaskBox/TaskBox';
 
 export interface ITaskList {
-    id?: number;
+    id: number;
     taskName: string;
     done?: boolean;
 }
 
-export function AddTask() {
+export function TaskInput() {
     const [newTask, setNewTask] = useState('');
 
     const [taskList, setTaskList] = useState<ITaskList[]>([]);
@@ -28,6 +28,12 @@ export function AddTask() {
             done: false
         }])
         setNewTask('');
+    }
+
+    function deleteTask(id: number) {
+        const removeIdIntoTaskList = taskList.filter(task => task.id !== id);
+
+        setTaskList(removeIdIntoTaskList)
     }
 
     return (
@@ -51,7 +57,7 @@ export function AddTask() {
                 </button>
             </form>
 
-            <TaskBox contentTask={taskList} />
+            <TaskBox contentTask={taskList} onDeleteTask={deleteTask} />
         </>
     )
 }

@@ -21,7 +21,6 @@
 /*Tirar o foco padrão do navegador.*/
 :focus {
     outline: transparent;
-    box-shadow: 0 0 0 2px var(--purple-500);
 }
 
 * {

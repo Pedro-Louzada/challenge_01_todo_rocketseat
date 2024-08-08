@@ -1,37 +1,44 @@
 import styles from './TasksBox.module.css';
 
+import { ITaskList } from '../TaskInput/TaskInput';
 
-import ClipBoard from '../../assets/Clipboard.svg';
-import { ITaskList } from '../AddTask/AddTask';
+import { EmptyTaskList } from '../EmptyTaskList/EmptyTaskList';
+import { TaskItem } from '../TaskItem/TaskItem';
 
 interface TaskBoxProps {
   contentTask: ITaskList[];
+  onDeleteTask: (id: number) => void
 }
 
-export function TaskBox({ contentTask }: TaskBoxProps) {
-    // const emptyTaskList = !contentTask.length;
+export function TaskBox({ contentTask, onDeleteTask }: TaskBoxProps) {
+  const emptyTaskList = !contentTask.length;
 
-    console.log(contentTask);
+  const quantityTask = contentTask.length;
 
-    return (
-        <main className={styles.taskBox}>
-        <header>
-          <div className={styles.createTasks}>
-            <p>Tarefas criadas</p>
-            <span>0</span>
-          </div>
-          <div className={styles.doneTasks}>
-            <p>Concluídas</p>
-            <span>0</span>
-          </div>
-        </header>
-        <section className={styles.taskList}>
-          <div className={styles.taskContent}>
-            <img src={ClipBoard} />
-            <p>Você ainda não tem tarefas cadastradas</p>
-            <span>Crie tarefas e organize seus itens a fazer</span>
-          </div>
-        </section>
-      </main>
-    )
+  return (
+    <main className={styles.taskBox}>
+      <header>
+        <div className={styles.createTasks}>
+          <p>Tarefas criadas</p>
+          <span>{quantityTask}</span>
+        </div>
+        <div className={styles.doneTasks}>
+          <p>Concluídas</p>
+          <span>0</span>
+        </div>
+      </header>
+      {emptyTaskList ?
+        (<EmptyTaskList />) :
+        contentTask.map(task => {
+          return (
+            <TaskItem 
+              key={task.id} 
+              content={task} 
+              changeStatusTask={onDeleteTask} 
+          />
+          )
+        })
+      }
+    </main>
+  )
 }
