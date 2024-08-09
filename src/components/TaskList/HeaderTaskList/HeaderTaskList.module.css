@@ -1,11 +1,4 @@
-.taskBox {
-    display: grid;
-    max-width: 46rem;
-
-    margin: calc(4rem + (3.375rem / 2)) auto 0;
-}
-
-.taskBox > header {
+.taskList {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -13,7 +6,7 @@
     padding-bottom: 1.5rem;
 }
 
-.taskBox header > div > span {
+.taskList > div > span {
     font-weight: bold;
     font-size: 0.75rem;
 

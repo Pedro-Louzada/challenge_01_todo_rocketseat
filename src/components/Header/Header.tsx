@@ -2,7 +2,6 @@ import styles from './Header.module.css';
 
 import Logo from '../../assets/todo_logo.svg';
 
-
 export function Header() {
     return (
         <header className={styles.logo}>
