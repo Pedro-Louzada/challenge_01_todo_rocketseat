@@ -1,10 +1,8 @@
 .item {
-    display: grid;
-    grid-template-columns: 1.5rem 1fr 1.5rem;
+    display: flex;
+    justify-content: space-between;
 
-    align-items: flex-start;
-
-    gap: 0.5rem;
+    align-items: center;
 
     padding: 1rem;
 
@@ -14,8 +12,13 @@
     border-radius: 0.5rem;
 }
 
-.item + .item {
+.item:not(:last-child) {
     margin-bottom: 0.75rem;
+}
+
+.item > div {
+    display: flex;
+    gap: 0.75rem;
 }
 
 .openedTask {
@@ -65,21 +68,39 @@
     background: transparent;
     border: none;
 
+    display: flex;
+
     border-radius: 4px;
 
     cursor: pointer;
 
-    padding: 0px 4px 2px 4px;
+    padding: 0.3125rem;
 
     transition: background-color 1s;
 }
 
 .buttonTrash:hover {
     background: var(--gray-400);
+
+    fill: var(--red-500);
 }
 
-.item > p {
+.taskOpenedName {
     font-size: 0.875rem;
     
     color: var(--white);
+}
+
+.taskClosedName {
+    text-decoration: line-through;
+
+    font-size: 0.875rem;
+}
+
+.trash {
+    color: #808080
+}
+
+.trash:hover {
+    color: #E25858
 }

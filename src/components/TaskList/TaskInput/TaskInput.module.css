@@ -6,6 +6,16 @@
   padding: 1rem;
 }
 
+.inputTaskEmpty {
+  border: none;
+  border-radius: 0.5rem;
+  
+  background: var(--gray-500);
+  padding: 1rem;
+  
+  box-shadow: 0 0 0 2px var(--red-500);
+}
+
 .inputTask:focus {
   color: var(--white);
 

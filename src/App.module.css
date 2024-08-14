@@ -42,3 +42,17 @@
 
     margin: calc(4rem + (3.375rem / 2)) auto 0;
 }
+
+.boxAlertErrorMessage {
+  display: flex;
+
+  max-width: 46rem;
+
+  margin: 2.5rem auto 0px;
+}
+
+.alertErrorMessage {
+  color: var(--red-500);
+
+  font-size: 0.875rem;
+}

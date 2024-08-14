@@ -24,12 +24,25 @@ export function App() {
 
   const [taskList, setTaskList] = useState<ITaskList[]>([]);
 
+  const [throwError, setThrowError] = useState(false);
+
   function handleChangeInputTask(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
   }
 
   function handleSubmitNewTask(event: FormEvent) {
     event.preventDefault();
+
+    
+    if(!newTask) {
+      setThrowError(!throwError);
+
+      setTimeout(() => {
+        setThrowError(false);
+      }, 2000);
+
+      return;
+    }
 
     setTaskList([...taskList, {
       id: taskList.length,
@@ -64,6 +77,7 @@ export function App() {
         <TaskInput
           value={newTask}
           onChange={handleChangeInputTask}
+          isEmpty={throwError}
         />
         <button
           className={styles.buttonTaskBox}
@@ -75,6 +89,10 @@ export function App() {
           />
         </button>
       </form>
+
+      {throwError && (<article className={styles.boxAlertErrorMessage}>
+        <p className={styles.alertErrorMessage}>Este campo é obrigatório.</p>
+        </article>)}
 
       <section className={styles.taskBox}>
         <HeaderTaskList createdTask={taskList}/>

@@ -24,20 +24,22 @@ export function TaskItem({ content, onDeleteTask, onDoneTask }: ITaskItem) {
 
     return (
         <li className={styles.item}>
-            <button
-                className={isDoneTask ? styles.closedTask : styles.openedTask}
-                onClick={handleBecomeDoneTask}
-            >
-                {isDoneTask ? <Check weight="bold" color="white" size={10}/> : ''}
-            </button>
+            <div>
+                <button
+                    className={isDoneTask ? styles.closedTask : styles.openedTask}
+                    onClick={handleBecomeDoneTask}
+                >
+                    {isDoneTask ? <Check weight="bold" color="white" size={10}/> : ''}
+                </button>
 
-            <p>
-                {content.taskName}
-            </p>
+                <p className={!isDoneTask ? styles.taskOpenedName : styles.taskClosedName}>
+                    {content.taskName}
+                </p>
+            </div>
             <button className={styles.buttonTrash} onClick={handleDeleteTask}>
                 <Trash
-                    size={16}
-                    color="#808080"
+                    className={styles.trash}
+                    size={18}
                 />
             </button>
         </li>
